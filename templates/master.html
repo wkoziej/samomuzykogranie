@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+
+
+  <style>
+
+    .detail-container {
+      display: flex; /* Ustawienie kontenera jako flexbox */
+      flex-wrap: wrap; /* Pozwól elementom zawijać się do nowej linii w kontenerze */
+      width: 100%; /* Szerokość kontenera */
+      border: 1px solid #ccc; /* Rama kontenera */
+      
+    }
+    .part-container {
+      display: flex; /* Ustawienie kontenera jako flexbox */
+      flex-wrap: wrap; /* Pozwól elementom zawijać się do nowej linii w kontenerze */
+      width: 100%; /* Szerokość kontenera */
+      border: 1px solid #ccc; /* Rama kontenera */
+    }
+    .object-container {
+      display: flex; /* Ustawienie kontenera jako flexbox */
+      flex-wrap: wrap; /* Pozwól elementom zawijać się do nowej linii w kontenerze */
+      width: 100%; /* Szerokość kontenera */
+      background-color: #f5f5f5; /* Kolor tła elementu */
+    
+    }
+    .object-item  {
+      width: 200px; /* Szerokość pojedynczego elementu */
+      height: 30; /* Wysokość pojedynczego elementu */
+      background-color: #00f0f0; /* Kolor tła elementu */
+      margin: 5px; /* Margines między elementami */
+      display: flex; /* Ustawienie elementu jako flexbox */
+      justify-content: center; /* Wyśrodkuj zawartość w poziomie */
+      align-items: center; /* Wyśrodkuj zawartość w pionie */
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .object-action-item  {
+      width: 200px; /* Szerokość pojedynczego elementu */
+      height: 20; /* Wysokość pojedynczego elementu */
+      background-color: #f0f0f0; /* Kolor tła elementu */
+      margin: 5px; /* Margines między elementami */
+      display: flex; /* Ustawienie elementu jako flexbox */
+      justify-content: center; /* Wyśrodkuj zawartość w poziomie */
+      align-items: center; /* Wyśrodkuj zawartość w pionie */
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  {% csrf_token %}
+  {# Display django.contrib.messages as Bootstrap alerts #}
+  {% bootstrap_messages %}
+
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <!-- Zawartość menu głównego -->
+  <ul class="nav bg-info">
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/songs/">Song</a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-lg-2">
+        {% block left-menu%}
+        {% endblock%}
+      </div>
+
+      <div class="col-lg-8">
+        
+        {% block content %}
+        {% endblock %}
+                   
+      </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

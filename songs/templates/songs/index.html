@@ -1,0 +1,18 @@
+
+{% extends 'master.html' %}
+
+
+{% block left-menu %} 
+    {% include 'songs/menu.html' %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<h3>Songs</h3>
+
+{% include 'songs/song_list.html' %}
+
+
+{% endblock %}

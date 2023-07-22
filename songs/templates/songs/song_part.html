@@ -1,0 +1,27 @@
+
+
+<div class = "part-container">
+    <b>
+    {{part.part_id}}. {{part.part_name}}
+</b>
+    {% for object_actions in part.objects_actions %}
+    
+    <div  class ="object-container">
+        <div class="object-item">
+        {{object_actions.object_name}}
+        </div>
+        {% for action_description in object_actions.actions_descriptions %}
+        <div class="object-action-item">
+   
+            {{action_description}}
+        </div>
+   
+        {% endfor %}
+
+
+    </div>
+
+    {% endfor %}
+
+
+</div>
